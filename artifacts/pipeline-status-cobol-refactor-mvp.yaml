@@ -7,8 +7,8 @@ updated: "2026-06-24T12:00:00Z"
 updated_by: "sdlc-pipeline-orchestrator-agent"
 
 phase: "A"
-stage: "1-PRD"
-sub_stage: "PR open — docs-only lane"
+stage: "2-PFD"
+sub_stage: "PR #18 open — docs-only lane"
 working_env: "LOCAL"
 
 sprint:
@@ -17,13 +17,13 @@ sprint:
   board: []
 
 branches:
-  dev_head: "4b9b921"
+  dev_head: "609d386"
   last_release_tag: null
 
 open_prs:
-  - pr: 17
+  - pr: 18
     base: "dev"
-    head: "chore/stage-1-prd"
+    head: "chore/stage-2-pfd-backlog"
     lane: "docs"
     state: "open"
 
@@ -41,5 +41,6 @@ environments:
   QA: {state: "none", url: null, deployed_digest: null}
   PROD: {state: "none", url: null, deployed_digest: null}
 
-gates_passed: []
+gates_passed:
+  - stage-1
 pending_user_action: null

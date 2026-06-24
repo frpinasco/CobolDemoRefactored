@@ -1,0 +1,131 @@
+Level,ID,Parent ID,Title,User Story,Functional Contribution,Definition of Ready,Definition of Done,Test Scenarios,Priority
+Feature,F-001,,Age Group Classification,,,,,,Must Have
+Story,F-001-US-01,F-001,Implement age classification core logic,"As a developer studying the reference, I want a pure function that takes an age (0-99) and returns the classification (ADULT / TEEN / CHILD) so that I can see how a conditional branch maps from COBOL to modern code.","Establishes the core classification algorithm.","- Classification thresholds agreed: ADULT >=18, TEEN >=13, CHILD <13
+- Acceptance criteria written and understood
+- Story estimated","- Given age 25, classify() returns ADULT
+- Given age 18, classify() returns ADULT
+- Given age 16, classify() returns TEEN
+- Given age 13, classify() returns TEEN
+- Given age 5, classify() returns CHILD
+- Given age 0, classify() returns CHILD
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Adult boundary: 18 returns ADULT
+- Teen boundary: 13 returns TEEN
+- Child boundary: 12 returns CHILD
+- Edge: 0 returns CHILD, 99 returns ADULT","Must Have"
+Story,F-001-US-02,F-001,CLI interface for age classification,"As a user running the reference project, I want to invoke age classification from the command line so that I can test and observe the feature without modifying code.","Wraps the core logic with a CLI entry point.","- F-001-US-01 is Done
+- CLI framework selected
+- Acceptance criteria written and understood
+- Story estimated","- --age 16 prints TEEN
+- --age 100 prints error
+- --age -1 prints error
+- --age abc prints error
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Valid: --age 16 prints TEEN
+- Out of range: --age 100 prints error
+- Non-numeric: --age abc prints error","Must Have"
+Feature,F-002,,Countdown,,,,,,Must Have
+Story,F-002-US-01,F-002,Implement countdown core logic,"As a developer studying the reference, I want a function that generates a countdown sequence from N to 1 so that I can see how a loop construct maps from COBOL to modern code.","Establishes the core countdown algorithm.","- Output format agreed: Counting down ... N
+- Acceptance criteria written and understood
+- Story estimated","- N=3 returns [3, 2, 1]
+- N=1 returns [1]
+- N=0 returns empty/error
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Normal: N=3 produces [3, 2, 1]
+- Single: N=1 produces [1]
+- Zero/negative: N=0/-1 produces error","Must Have"
+Story,F-002-US-02,F-002,CLI interface for countdown,"As a user running the reference project, I want to invoke the countdown from the command line so that I can test and observe the feature.","Wraps the core logic with a CLI entry point.","- F-002-US-01 is Done
+- CLI framework selected
+- Acceptance criteria written and understood
+- Story estimated","- --countdown 3 prints 3 lines
+- --countdown 1 prints 1 line
+- --countdown 0 prints error
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Normal: --countdown 3 prints three lines
+- Single: --countdown 1 prints one line
+- Zero: --countdown 0 prints error","Must Have"
+Feature,F-003,,Fibonacci Sequence Generator,,,,,,Must Have
+Story,F-003-US-01,F-003,Implement Fibonacci generation core logic,"As a developer studying the reference, I want a function that generates Fibonacci numbers F(1) through F(N) so that I can see how iterative computation maps from COBOL to modern code.","Establishes the core iterative Fibonacci algorithm.","- Algorithm confirmed: iterative F(n) = F(n-1) + F(n-2), F(0)=0, F(1)=1
+- Acceptance criteria written and understood
+- Story estimated","- N=10 returns [0,1,1,2,3,5,8,13,21,34]
+- N=7 returns [0,1,1,2,3,5,8]
+- N=1 returns [0]
+- N=0 returns [] or error
+- Integer-only return type
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Standard: N=10 returns first 10 numbers
+- Short: N=1 returns [0]
+- Zero: N=0 returns empty/error","Must Have"
+Story,F-003-US-02,F-003,Configurable display range filtering,"As a user running the reference, I want to display only a subset of the generated Fibonacci numbers by specifying a start and end index so that I can compare with the COBOL original's conditional output logic.","Adds range-based display filtering.","- F-003-US-01 is Done
+- Format agreed: FIBONACCI [index] : [value]
+- Acceptance criteria written and understood
+- Story estimated","- N=10, range 6-10 returns filtered output
+- N=10, range 1-3 returns first 3
+- start > end returns error
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- COBOL-compatible range: N=10, range 6-10
+- Full range: N=5, range 1-5
+- Invalid: start > end returns error","Must Have"
+Story,F-003-US-03,F-003,CLI interface for Fibonacci generation,"As a user running the reference project, I want to invoke Fibonacci generation from the command line with configurable N and range so that I can test and observe the feature.","Wraps core and range filter with CLI entry point.","- F-003-US-01 and F-003-US-02 are Done
+- CLI framework selected
+- Acceptance criteria written and understood
+- Story estimated","- --fibonacci 10 --range 6-10 prints filtered output
+- --fibonacci 5 prints all values
+- --fibonacci 0 prints error
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- With range: --fibonacci 10 --range 6-10 prints filtered
+- Without range: --fibonacci 5 prints all
+- Zero: --fibonacci 0 prints error","Must Have"
+Feature,F-004,,Interactive Two-Number Addition,,,,,,Must Have
+Story,F-004-US-01,F-004,Implement addition core logic with input validation,"As a developer studying the reference, I want a function that validates two integers (0-99 each) and returns their sum so that I can see how COBOL ADD maps to modern arithmetic with validation guards.","Establishes the core addition and validation logic.","- Input range confirmed: 0-99 per operand
+- Acceptance criteria written and understood
+- Story estimated","- 25 + 17 returns 42
+- 0 + 0 returns 0
+- 99 + 99 returns 198
+- -1 returns validation error
+- 100 returns validation error
+- abc returns validation error
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Valid sum: 25 + 17 = 42
+- Boundary: 0+0=0, 99+99=198
+- Out of range: negative or >99 returns error","Must Have"
+Story,F-004-US-02,F-004,CLI interface for interactive addition,"As a user running the reference project, I want to input two numbers interactively and see their sum displayed so that I can test and observe the feature.","Wraps addition core with interactive prompts.","- F-004-US-01 is Done
+- CLI framework selected
+- Acceptance criteria written and understood
+- Story estimated","- --add prompts and prints correct sum
+- Non-numeric input triggers error and retry
+- Out-of-range input triggers error and retry
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Normal: valid inputs produce correct sum
+- Non-numeric: abc triggers error and retry
+- Out of range: 100 triggers error and retry","Must Have"
+Feature,F-005,,External Function Interop,,,,,,Should Have
+Story,F-005-US-01,F-005,Implement external function invocation mechanism,"As a developer studying the reference, I want a function that invokes an external executable by name with a numeric argument and captures its exit code so that I can see how COBOL CALL maps to modern system invocation.","Establishes the core invocation mechanism.","- Mechanism agreed: invoke executable by name
+- Stub executable exists for testing
+- Acceptance criteria written and understood
+- Story estimated","- Existing executable with valid arg returns exit 0
+- Non-existent executable returns not-found error
+- Non-zero exit code captured correctly
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Success: existing executable returns exit 0
+- Not found: non-existent returns error
+- Non-zero: exit 1 captured correctly","Should Have"
+Story,F-005-US-02,F-005,CLI interface for external function invocation,"As a user running the reference project, I want to invoke an external function from the command line so that I can test and observe the feature.","Wraps invocation mechanism with CLI entry point.","- F-005-US-01 is Done
+- CLI framework selected
+- Acceptance criteria written and understood
+- Story estimated","- --call ctest 1337 invokes and prints exit code
+- --call nonexistent 1 prints error
+- Code reviewed and merged
+- Tests passed
+- No blocking defects","- Valid: --call ctest 1337 prints exit code
+- Not found: --call nonexistent 1 prints error","Should Have"

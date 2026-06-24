@@ -1,0 +1,25 @@
+schema: 1
+updated: "2026-06-24T12:00:00Z"
+updated_by: "sdlc-pipeline-orchestrator-agent v3.1"
+
+max_slots: 3
+active_pipeline_id: "cobol-refactor-mvp"
+
+slots:
+  dev: "cobol-refactor-mvp"
+  test: null
+  qa: null
+
+pipelines:
+  - pipeline_id: "cobol-refactor-mvp"
+    label: "MVP — COBOL-to-modern reimplementation (F-001–F-005)"
+    slot: "dev"
+    status_file: "artifacts/pipeline-status-cobol-refactor-mvp.yaml"
+    phase: "A"
+    stage: "1-PRD"
+    state: "in_progress"
+    started: "2026-06-24"
+    completed: null
+    blocking_reason: null
+    next_action: "Merge #17 (docs-only), then spawn Stage 2 — Functional Analyst"
+    notes: "First pipeline train — COBOL reverse-engineering analysis completed; PRD and COLLAB doc written; PR #17 open for merge"

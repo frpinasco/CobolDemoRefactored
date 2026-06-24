@@ -1,0 +1,45 @@
+schema: 1
+pipeline_id: "cobol-refactor-mvp"
+slot: "dev"
+project: "CobolDemoRefactored"
+state: "in_progress"
+updated: "2026-06-24T12:00:00Z"
+updated_by: "sdlc-pipeline-orchestrator-agent"
+
+phase: "A"
+stage: "1-PRD"
+sub_stage: "PR open — docs-only lane"
+working_env: "LOCAL"
+
+sprint:
+  current: 0
+  total_planned: 0
+  board: []
+
+branches:
+  dev_head: "4b9b921"
+  last_release_tag: null
+
+open_prs:
+  - pr: 17
+    base: "dev"
+    head: "chore/stage-1-prd"
+    lane: "docs"
+    state: "open"
+
+defects:
+  open_critical_high: 0
+  waived: []
+
+release:
+  tag: null
+  digest: null
+
+environments:
+  LOCAL: {state: "up", url: null, deployed_digest: null}
+  TEST: {state: "none", url: null, deployed_digest: null}
+  QA: {state: "none", url: null, deployed_digest: null}
+  PROD: {state: "none", url: null, deployed_digest: null}
+
+gates_passed: []
+pending_user_action: null

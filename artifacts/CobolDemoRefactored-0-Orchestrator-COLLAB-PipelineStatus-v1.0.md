@@ -10,7 +10,7 @@ _Generated from: artifacts/pipeline-registry.yaml | Last updated: 2026-06-24T12:
 ── PIPELINE TRAINS ───────────────────────────────────────────────────────────
  Slot  ID                   Phase/Stage     State         Next action
 ──────────────────────────────────────────────────────────────────────────────
- DEV   cobol-refactor-mvp   A / 1-PRD       in_progress   Merge #17, then Stage 2
+ DEV   cobol-refactor-mvp   A / 2-PFD       in_progress   Merge #18, then Stage 3
  TEST  —                     —               —             —
  QA    —                     —               —             —
 ──────────────────────────────────────────────────────────────────────────────
@@ -27,28 +27,33 @@ Promotion gates: DEV→TEST open (test slot free) | TEST→QA open (qa slot free
 | **Label** | MVP — COBOL-to-modern reimplementation (F-001–F-005) |
 | **Slot** | DEV |
 | **Phase** | A — Analysis |
-| **Stage** | 1 — Product (PRD) |
-| **Sub-stage** | PR #17 open — docs-only lane |
+| **Stage** | 2 — Features (PFD) |
+| **Sub-stage** | PR #18 open — docs-only lane |
 | **State** | In Progress |
 | **Working Env** | LOCAL |
-| **Dev HEAD** | `4b9b921` |
+| **Dev HEAD** | `609d386` |
 
 ### Completed Work
 
-- **Stage 1 — Product Developer: DONE**
+- **Stage 1 — Product Developer: DONE** (PR #17 merged)
   - `artifacts/CobolDemoRefactored-1-Product-DOC-PRD-v1.0.md` — Product Requirements Document (15 sections)
   - `artifacts/CobolDemoRefactored-COLLAB-Features_Requirements.md` — Features & Requirements traceability (stable name)
   - `artifacts/main.cobol.ANALYSIS_REPORT.md` — COBOL functional reverse-engineering report
+
+- **Stage 2 — Functional Analyst: DONE** (PR #18 open)
+  - `artifacts/CobolDemoRefactored-2-Features-DOC-PFD-v1.0.md` — Product Feature Document (5 features, 11 stories)
+  - `artifacts/CobolDemoRefactored-COLLAB-Features_Requirements.md` — Enriched with user stories (v1.1)
+  - `artifacts/CobolDemoRefactored-2-Features-HANDOFF-Backlog-v1.0.csv` — Backlog export
 
 ### Open Pull Requests
 
 | PR | Base | Head | Lane | Status |
 |----|------|------|------|--------|
-| [#17](https://github.com/frpinasco/CobolDemoRefactored/pull/17) | dev | chore/stage-1-prd | docs-only | Open |
+| [#18](https://github.com/frpinasco/CobolDemoRefactored/pull/18) | dev | chore/stage-2-pfd-backlog | docs-only | Open |
 
 ### Next Action
 
-Merge PR #17 (docs-only, auto-merge on green), then spawn **Stage 2 — Functional Analyst** to produce PFD + Backlog.
+Merge PR #18 (docs-only), then spawn **Stage 3 — IT Architect** to produce TAD, ADR Handoff, and Threat Model.
 
 ### Defects
 
